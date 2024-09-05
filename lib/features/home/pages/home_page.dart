@@ -1,13 +1,13 @@
-import 'package:avia_test/features/home/widgets/home_card.dart';
-import 'package:avia_test/features/home/widgets/status_card.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/config/app_colors.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/custom_scaffold.dart';
 import '../../../core/widgets/texts/text_r.dart';
+import '../widgets/home_card.dart';
+import '../widgets/status_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -41,7 +41,9 @@ class HomePage extends StatelessWidget {
                 ),
                 const Spacer(),
                 CupertinoButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push('/settings');
+                  },
                   padding: EdgeInsets.zero,
                   minSize: 40,
                   child: SvgPicture.asset('assets/settings.svg'),
