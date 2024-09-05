@@ -56,10 +56,11 @@ int getRandomMiles() {
 }
 
 void precacheImages(BuildContext context) {
-  // List<String> imageAssets = [
-  //   '',
-  // ];
-  // for (String assets in imageAssets) {
-  //   precacheImage(AssetImage(assets), context);
-  // }
+  List<String> imageAssets = [
+    'assets/gift1.png',
+    'assets/gift2.png',
+  ];
+  for (String assets in imageAssets) {
+    precacheImage(AssetImage(assets), context);
+  }
 }
