@@ -77,6 +77,7 @@ class _Button extends StatelessWidget {
           TextM(
             title,
             fontSize: 14,
+            color: AppColors.main,
           ),
         ],
       ),

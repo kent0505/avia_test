@@ -22,6 +22,7 @@ class HomeCard extends StatelessWidget {
         child: CupertinoButton(
           onPressed: () {
             if (title == 'Daily Bonus') {
+              context.push('/bonus');
             } else {
               context.push('/flight');
             }

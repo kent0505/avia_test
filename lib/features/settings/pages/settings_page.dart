@@ -43,7 +43,7 @@ class SettingsPage extends StatelessWidget {
                   id: 3,
                   title: 'Daily Bonus',
                   onPressed: () {
-                    context.push('/settings/bonus');
+                    context.push('/bonus');
                   },
                 ),
                 const SizedBox(height: 30),

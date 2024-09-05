@@ -27,6 +27,10 @@ final routerConfig = GoRouter(
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
+      path: '/bonus',
+      builder: (context, state) => const BonusPage(),
+    ),
+    GoRoute(
       path: '/settings',
       builder: (context, state) => const SettingsPage(),
       routes: [
@@ -37,10 +41,6 @@ final routerConfig = GoRouter(
         GoRoute(
           path: 'notifications',
           builder: (context, state) => const NotificationsPage(),
-        ),
-        GoRoute(
-          path: 'bonus',
-          builder: (context, state) => const BonusPage(),
         ),
         GoRoute(
           path: 'contact',

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/config/app_colors.dart';
+import '../../../core/db/prefs.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/custom_scaffold.dart';
 import '../../../core/widgets/texts/text_r.dart';
@@ -20,10 +21,10 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 24 + getStatusBar(context)),
-            const Row(
+            Row(
               children: [
                 TextM(
-                  'Hi, Guest',
+                  profileName.isEmpty ? 'Hi, Guest' : 'Hi, $profileName',
                   fontSize: 14,
                   color: AppColors.main,
                 ),
