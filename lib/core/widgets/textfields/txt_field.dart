@@ -24,7 +24,7 @@ class TxtField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: multiline ? 124 : 48,
       decoration: BoxDecoration(
         color: AppColors.grey1,
         borderRadius: BorderRadius.circular(8),
@@ -49,12 +49,12 @@ class TxtField extends StatelessWidget {
         ),
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(
-            vertical: 0,
+            vertical: 16,
             horizontal: 16,
           ),
           hintText: hintText,
           hintStyle: const TextStyle(
-            color: AppColors.grey1,
+            color: AppColors.white,
             fontFamily: Fonts.medium,
           ),
           focusedBorder: const OutlineInputBorder(
