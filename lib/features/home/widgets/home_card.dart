@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/config/app_colors.dart';
 import '../../../core/widgets/texts/text_r.dart';
@@ -19,7 +20,12 @@ class HomeCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
         ),
         child: CupertinoButton(
-          onPressed: () {},
+          onPressed: () {
+            if (title == 'Daily Bonus') {
+            } else {
+              context.push('/flight');
+            }
+          },
           padding: const EdgeInsets.all(16),
           alignment: Alignment.centerLeft,
           child: Column(

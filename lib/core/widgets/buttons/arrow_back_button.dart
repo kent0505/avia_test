@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../config/app_colors.dart';
-import '../../utils.dart';
 import '../texts/text_r.dart';
 
 class ArrowBackButton extends StatelessWidget {
@@ -11,27 +10,28 @@ class ArrowBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 46,
-      margin: EdgeInsets.only(top: getStatusBar(context)),
+      height: 40,
+      width: 78,
+      decoration: BoxDecoration(
+        color: AppColors.main,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: CupertinoButton(
         onPressed: () {
           Navigator.pop(context);
         },
         padding: EdgeInsets.zero,
-        child: const Row(
+        minSize: 40,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(width: 15),
-            Icon(
-              Icons.arrow_back_ios_rounded,
-              color: AppColors.white,
-            ),
-            SizedBox(width: 5),
-            TextM(
+            SvgPicture.asset('assets/chevron.svg'),
+            const SizedBox(width: 7),
+            const TextB(
               'Back',
-              fontSize: 16,
+              fontSize: 14,
               color: AppColors.white,
             ),
-            SizedBox(width: 5),
           ],
         ),
       ),

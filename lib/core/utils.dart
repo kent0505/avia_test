@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -18,8 +20,18 @@ String formatDateTime(DateTime date) {
   return formattedDate;
 }
 
+String formatTime(DateTime time) {
+  DateFormat timeFormat = DateFormat('HH:mm');
+  String formattedTime = timeFormat.format(time);
+  return formattedTime;
+}
+
 DateTime convertToDateTime(String date) {
-  return DateFormat('dd.MM.yyyy').parse(date);
+  try {
+    return DateFormat('dd.MM.yyyy').parse(date);
+  } catch (e) {
+    return DateTime.now();
+  }
 }
 
 double getStatusBar(BuildContext context) {
@@ -28,6 +40,19 @@ double getStatusBar(BuildContext context) {
 
 double getBottom(BuildContext context) {
   return MediaQuery.of(context).viewPadding.bottom;
+}
+
+bool getButtonActive(List<TextEditingController> controllers) {
+  for (TextEditingController controller in controllers) {
+    if (controller.text.isEmpty) return false;
+  }
+  return true;
+}
+
+int getRandomMiles() {
+  final Random random = Random();
+  int randomNumber = 800 + random.nextInt(1501 - 800);
+  return randomNumber;
 }
 
 void precacheImages(BuildContext context) {

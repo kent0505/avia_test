@@ -1,24 +1,24 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
-import '../models/test_model.dart';
+import '../models/flight.dart';
 
-String boxName = 'mybox';
-List<TestModel> modelsList = [];
+String boxName = 'aviabox';
+List<Flight> flightsList = [];
 
 Future<void> initHive() async {
   await Hive.initFlutter();
   await Hive.deleteBoxFromDisk(boxName);
-  Hive.registerAdapter(TestModelAdapter());
+  Hive.registerAdapter(FlightAdapter());
 }
 
-Future<void> getModels() async {
+Future<void> getFlights() async {
   final box = await Hive.openBox(boxName);
-  List data = box.get('modelsList') ?? [];
-  modelsList = data.cast<TestModel>();
+  List data = box.get('flightsList') ?? [];
+  flightsList = data.cast<Flight>();
 }
 
-Future<void> updateModels() async {
+Future<void> updateFlights() async {
   final box = await Hive.openBox(boxName);
-  box.put('modelsList', modelsList);
-  modelsList = await box.get('modelsList');
+  box.put('flightsList', flightsList);
+  flightsList = await box.get('flightsList');
 }

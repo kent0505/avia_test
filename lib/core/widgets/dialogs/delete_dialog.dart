@@ -17,17 +17,14 @@ class DeleteDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: AppColors.main,
-      // shape: const RoundedRectangleBorder(
-      //   borderRadius: BorderRadius.all(Radius.circular(32)),
-      // ),
+      backgroundColor: AppColors.grey2,
       child: SizedBox(
         height: 150,
         width: MediaQuery.of(context).size.width > 300 ? 300 : null,
         child: Column(
           children: [
             const SizedBox(height: 20),
-            TextM(
+            TextB(
               title,
               fontSize: 18,
             ),
@@ -77,7 +74,7 @@ class _Button extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextR(
+          TextM(
             title,
             fontSize: 14,
           ),

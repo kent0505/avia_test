@@ -6,11 +6,11 @@ import 'core/config/router.dart';
 import 'core/config/themes.dart';
 import 'core/db/db.dart';
 import 'core/utils.dart';
+import 'features/flight/bloc/flight_bloc.dart';
 import 'features/home/bloc/home_bloc.dart';
 
 void main() async {
   await initHive();
-  // WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => HomeBloc()),
+        BlocProvider(create: (context) => FlightBloc()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

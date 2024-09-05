@@ -6,11 +6,11 @@ final theme = ThemeData(
   useMaterial3: false,
   primarySwatch: Colors.grey,
   fontFamily: Fonts.regular,
-  // textSelectionTheme: TextSelectionThemeData(
-  //   cursorColor: AppColors.white50,
-  //   selectionColor: AppColors.white50,
-  //   selectionHandleColor: AppColors.white50,
-  // ),
+  textSelectionTheme: const TextSelectionThemeData(
+    cursorColor: AppColors.main,
+    selectionColor: AppColors.main,
+    selectionHandleColor: AppColors.main,
+  ),
   colorScheme: ColorScheme.fromSwatch(
     accentColor: AppColors.grey1, // overscroll indicator color
   ),
