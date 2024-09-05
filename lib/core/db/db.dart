@@ -7,7 +7,7 @@ List<Flight> flightsList = [];
 
 Future<void> initHive() async {
   await Hive.initFlutter();
-  await Hive.deleteBoxFromDisk(boxName);
+  // await Hive.deleteBoxFromDisk(boxName);
   Hive.registerAdapter(FlightAdapter());
 }
 
