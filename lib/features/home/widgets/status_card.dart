@@ -1,0 +1,63 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../core/config/app_colors.dart';
+import '../../../core/widgets/texts/text_r.dart';
+
+class StatusCard extends StatelessWidget {
+  const StatusCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: AppColors.grey2,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const TextM('Your current status:', fontSize: 14),
+                const SizedBox(height: 10),
+                const TextB(
+                  'Gold',
+                  fontSize: 30,
+                  color: AppColors.yellow,
+                ),
+                const SizedBox(height: 44),
+                TextR(
+                  'You have accumulated over 10,000 flight miles',
+                  fontSize: 14,
+                  color: AppColors.white56,
+                ),
+                const SizedBox(height: 14),
+                CupertinoButton(
+                  onPressed: () {},
+                  padding: EdgeInsets.zero,
+                  minSize: 30,
+                  child: Container(
+                    height: 30,
+                    width: 96,
+                    decoration: BoxDecoration(
+                      color: AppColors.main,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: const Center(
+                      child: TextB('Details', fontSize: 14),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 14),
+          SvgPicture.asset('assets/status.svg'),
+        ],
+      ),
+    );
+  }
+}
