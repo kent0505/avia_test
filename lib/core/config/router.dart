@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/flight/pages/flight_add_page.dart';
 import '../../features/flight/pages/flight_page.dart';
 import '../../features/home/pages/home_page.dart';
+import '../../features/home/pages/status_page.dart';
 import '../../features/settings/pages/bonus_page.dart';
 import '../../features/settings/pages/contact_page.dart';
 import '../../features/settings/pages/notifications_page.dart';
@@ -28,9 +29,14 @@ final routerConfig = GoRouter(
       builder: (context, state) => const AccountPage(),
     ),
     GoRoute(
-      path: '/home',
-      builder: (context, state) => const HomePage(),
-    ),
+        path: '/home',
+        builder: (context, state) => const HomePage(),
+        routes: [
+          GoRoute(
+            path: 'status',
+            builder: (context, state) => const StatusPage(),
+          ),
+        ]),
     GoRoute(
       path: '/bonus',
       builder: (context, state) => const BonusPage(),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/config/app_colors.dart';
 import '../../../core/widgets/texts/text_r.dart';
@@ -36,7 +37,9 @@ class StatusCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 14),
                 CupertinoButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.push('/home/status');
+                  },
                   padding: EdgeInsets.zero,
                   minSize: 30,
                   child: Container(
