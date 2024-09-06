@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/config/app_colors.dart';
-import '../../core/db/prefs.dart';
 import '../../core/widgets/buttons/primary_button.dart';
 import '../../core/widgets/texts/text_r.dart';
 
@@ -49,9 +48,7 @@ class _OnboardPageState extends State<OnboardPage> {
                 title: 'Get Started',
                 width: 214,
                 onPressed: () async {
-                  await saveData().then((value) {
-                    context.go('/account');
-                  });
+                  context.go('/account');
                 },
               ),
               const Spacer(flex: 2),

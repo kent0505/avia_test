@@ -28,6 +28,7 @@ flutter:
   assets:
     - assets/
     - assets/fonts/
+    - assets/status/
   fonts:
     # Inter
     - family: InterR

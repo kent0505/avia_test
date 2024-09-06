@@ -4,9 +4,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/config/app_colors.dart';
 import '../../../core/widgets/texts/text_r.dart';
+import '../pages/status_page.dart';
 
 class StatusCard extends StatelessWidget {
-  const StatusCard({super.key});
+  const StatusCard(this.status, {super.key});
+
+  final StatusModel status;
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +27,14 @@ class StatusCard extends StatelessWidget {
               children: [
                 const TextM('Your current status:', fontSize: 14),
                 const SizedBox(height: 10),
-                const TextB(
-                  'Gold',
+                TextB(
+                  status.name,
                   fontSize: 30,
                   color: AppColors.yellow,
                 ),
                 const SizedBox(height: 44),
                 TextR(
-                  'You have accumulated over 10,000 flight miles',
+                  status.desc,
                   fontSize: 14,
                   color: AppColors.white56,
                 ),
@@ -58,7 +61,7 @@ class StatusCard extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 14),
-          SvgPicture.asset('assets/status.svg'),
+          SvgPicture.asset(status.image),
         ],
       ),
     );

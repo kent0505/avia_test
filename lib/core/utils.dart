@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../common/assets.dart';
+import '../features/home/pages/status_page.dart';
 import 'models/flight.dart';
 
 double navBarHeight = 60;
@@ -85,4 +87,29 @@ int getMiles(List<Flight> flights) {
     miles += flight.miles;
   }
   return miles;
+}
+
+List<StatusModel> statuses = [
+  StatusModel(
+      name: 'Bronze',
+      image: Assets.statusGroup4,
+      desc: "You have accumulated over 2,000 flight miles"),
+  StatusModel(
+      name: 'Silver',
+      image: Assets.statusGroup3,
+      desc: "You have accumulated over 5,000 flight miles"),
+  StatusModel(
+      name: 'Gold',
+      image: Assets.statusGroup1,
+      desc: "You have accumulated over 10,000 flight miles"),
+];
+
+StatusModel getStatus(int miles) {
+  if (miles <= 2000) {
+    return statuses.first;
+  } else if (miles <= 5000) {
+    return statuses[1];
+  } else {
+    return statuses[2];
+  }
 }

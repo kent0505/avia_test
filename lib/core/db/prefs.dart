@@ -8,7 +8,7 @@ int profilePoints = 0;
 
 Future<void> getData() async {
   final prefs = await SharedPreferences.getInstance();
-  // await prefs.remove('onboard');
+  await prefs.remove('onboard');
   onboard = prefs.getBool('onboard') ?? true;
   profileName = prefs.getString('profileName') ?? '';
   profileEmail = prefs.getString('profileEmail') ?? '';
