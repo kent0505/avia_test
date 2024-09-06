@@ -50,7 +50,7 @@ class _OnboardPageState extends State<OnboardPage> {
                 width: 214,
                 onPressed: () async {
                   await saveData().then((value) {
-                    context.go('/home');
+                    context.go('/account');
                   });
                 },
               ),
