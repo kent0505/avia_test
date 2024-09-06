@@ -19,7 +19,7 @@ class FlightBloc extends Bloc<FlightEvent, FlightState> {
     });
 
     on<AddFlightEvent>((event, emit) async {
-      flightsList.add(event.flight);
+      flightsList.insert(0, event.flight);
       await updateFlights();
 
       emit(FlightLoadedState(flights: flightsList));

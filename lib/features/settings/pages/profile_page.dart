@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/config/app_colors.dart';
+import '../../../core/db/prefs.dart';
+import '../../../core/utils.dart';
 import '../../../core/widgets/custom_appbar.dart';
 import '../../../core/widgets/custom_scaffold.dart';
 import '../../../core/widgets/texts/text_r.dart';
+import '../../flight/bloc/flight_bloc.dart';
 import '../widgets/profile_card.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -11,16 +15,26 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScaffold(
+    return CustomScaffold(
       body: Column(
         children: [
-          CustomAppbar('Profile', settings: true),
-          SizedBox(height: 12),
-          ProfileCard(),
-          SizedBox(height: 14),
-          _Tile(title: 'Miles', amount: '7540'),
-          SizedBox(height: 14),
-          _Tile(title: 'Points', amount: '0'),
+          const CustomAppbar('Profile', settings: true),
+          const SizedBox(height: 12),
+          const ProfileCard(),
+          const SizedBox(height: 14),
+          BlocBuilder<FlightBloc, FlightState>(
+            builder: (context, state) {
+              if (state is FlightLoadedState) {
+                return _Tile(
+                  title: 'Miles',
+                  amount: getMiles(state.flights).toString(),
+                );
+              }
+              return Container();
+            },
+          ),
+          const SizedBox(height: 14),
+          _Tile(title: 'Points', amount: '$profilePoints'),
         ],
       ),
     );

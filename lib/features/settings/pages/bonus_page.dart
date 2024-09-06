@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../core/config/app_colors.dart';
+import '../../../core/db/prefs.dart';
 import '../../../core/utils.dart';
 import '../../../core/widgets/custom_appbar.dart';
 import '../../../core/widgets/custom_scaffold.dart';
@@ -42,7 +43,8 @@ class _BonusPageState extends State<BonusPage> {
   void onGift(int value) async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setInt('lastEarn', getCurrentTimestamp());
-    prefs.setInt('points', value);
+    prefs.setInt('points', profilePoints += value);
+    profilePoints += value;
     setState(() {
       earned = true;
       earnedPoints = value;

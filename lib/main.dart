@@ -8,6 +8,7 @@ import 'core/db/db.dart';
 import 'core/utils.dart';
 import 'features/flight/bloc/flight_bloc.dart';
 import 'features/home/bloc/home_bloc.dart';
+import 'features/settings/bloc/profile_bloc.dart';
 
 void main() async {
   await initHive();
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => HomeBloc()),
         BlocProvider(create: (context) => FlightBloc()),
+        BlocProvider(create: (context) => ProfileBloc()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'models/flight.dart';
+
 double navBarHeight = 60;
 
 int getCurrentTimestamp() {
@@ -59,8 +61,28 @@ void precacheImages(BuildContext context) {
   List<String> imageAssets = [
     'assets/gift1.png',
     'assets/gift2.png',
+    'assets/p1.png',
+    'assets/p2.png',
+    'assets/p3.png',
+    'assets/p4.png',
+    'assets/p5.png',
+    'assets/p6.png',
+    'assets/p7.png',
+    'assets/p8.png',
+    'assets/p9.png',
+    'assets/p10.png',
+    'assets/p11.png',
+    'assets/p12.png',
   ];
   for (String assets in imageAssets) {
     precacheImage(AssetImage(assets), context);
   }
+}
+
+int getMiles(List<Flight> flights) {
+  int miles = 0;
+  for (Flight flight in flights) {
+    miles += flight.miles;
+  }
+  return miles;
 }

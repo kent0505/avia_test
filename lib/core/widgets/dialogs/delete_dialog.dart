@@ -17,39 +17,37 @@ class DeleteDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: AppColors.grey2,
-      child: SizedBox(
-        height: 150,
-        width: MediaQuery.of(context).size.width > 300 ? 300 : null,
+      child: Container(
+        padding: const EdgeInsets.all(24),
+        height: 208,
         child: Column(
           children: [
-            const SizedBox(height: 20),
             TextB(
               title,
               fontSize: 18,
             ),
             const Spacer(),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(width: 20),
                 _Button(
                   title: 'NO',
+                  color: AppColors.grey1,
                   onPressed: () {
                     Navigator.pop(context);
                   },
                 ),
-                const Spacer(),
+                const SizedBox(width: 14),
                 _Button(
                   title: 'YES',
+                  color: AppColors.main,
                   onPressed: () {
                     Navigator.pop(context);
                     onYes();
                   },
                 ),
-                const SizedBox(width: 20),
               ],
             ),
-            const SizedBox(height: 10),
           ],
         ),
       ),
@@ -60,26 +58,31 @@ class DeleteDialog extends StatelessWidget {
 class _Button extends StatelessWidget {
   const _Button({
     required this.title,
+    required this.color,
     required this.onPressed,
   });
 
   final String title;
+  final Color color;
   final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton(
-      padding: EdgeInsets.zero,
-      onPressed: onPressed,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextM(
-            title,
-            fontSize: 14,
-            color: AppColors.main,
+    return Expanded(
+      child: Container(
+        height: 38,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: CupertinoButton(
+          onPressed: onPressed,
+          padding: EdgeInsets.zero,
+          minSize: 38,
+          child: Center(
+            child: TextB(title, fontSize: 14),
           ),
-        ],
+        ),
       ),
     );
   }

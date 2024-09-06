@@ -142,7 +142,7 @@ class _FlightAddPageState extends State<FlightAddPage> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Center(
-                    child: TextM('$miles miles', fontSize: 14),
+                    child: TextM('$miles bonus miles', fontSize: 14),
                   ),
                 ),
                 const SizedBox(height: 80),

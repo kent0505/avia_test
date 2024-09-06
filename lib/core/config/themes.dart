@@ -15,8 +15,10 @@ final theme = ThemeData(
     accentColor: AppColors.grey1, // overscroll indicator color
   ),
   dialogTheme: const DialogTheme(
+    backgroundColor: AppColors.grey2,
+    insetPadding: EdgeInsets.symmetric(horizontal: 26),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(24)),
+      borderRadius: BorderRadius.all(Radius.circular(16)),
     ),
   ),
 );

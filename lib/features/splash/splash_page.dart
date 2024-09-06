@@ -7,6 +7,7 @@ import '../../core/config/app_colors.dart';
 import '../../core/db/prefs.dart';
 import '../../core/widgets/texts/text_r.dart';
 import '../flight/bloc/flight_bloc.dart';
+import '../settings/bloc/profile_bloc.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -20,6 +21,7 @@ class _SplashPageState extends State<SplashPage> {
     context.read<FlightBloc>().add(GetFlightEvent());
 
     await getData().then((value) {
+      context.read<ProfileBloc>().add(GetProfileEvent());
       Future.delayed(const Duration(seconds: 2), () {
         if (onboard) {
           context.go('/onboard');
